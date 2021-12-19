@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "c927f351-1672-45ba-ba32-510151429697",
+		"name": "Data Driven Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"check status code\"] = responseCode.code == 200;\r",
+							"tests[\"check status in the respnse\"] = responseBody.has(\"success\")\r",
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"check status in the response in exact position\"] = response.status = \"success\"\r",
+							"pm.test(\"check Content-Type in header\",function()\r",
+							"{\r",
+							"    pm.response.to.be.header(\"Content-Type\",\"application/json\",\"charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Saini\",\r\n    \"salary\" : \"20000\",\r\n    \"age\" : \"27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee Data Driven",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"check status code\"] = responseCode.code == 200;\r",
+							"tests[\"check status in the respnse\"] = responseBody.has(\"success\")\r",
+							"var response = JSON.parse(responseBody);\r",
+							"tests[\"check status in the response in exact position\"] = response.status = \"success\"\r",
+							"pm.test(\"check Content-Type in header\",function()\r",
+							"{\r",
+							"    pm.response.to.be.header(\"Content-Type\",\"application/json\",\"charset=utf-8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"salary\": \"{{salary}}\",\r\n    \"age\": \"{{age}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/create",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
