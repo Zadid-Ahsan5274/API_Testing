@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "e15d8408-7b13-40e7-ab1c-078f2634490e",
+		"name": "Countries API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Countries Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/name/bangladesh",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"name",
+						"bangladesh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Capital City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/capital/dhaka",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"capital",
+						"dhaka"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
